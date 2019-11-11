@@ -15,9 +15,4 @@ const Display = () => {
   );
 };
 
-Display.defaultProps = {
-  closed: false,
-  locked: false
-};
-
 export default Display;
