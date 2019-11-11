@@ -21,4 +21,13 @@ describe('<Dashboard />', () => {
     expect(getByText(/unlocked/i)).toBeInTheDocument();
     expect(getByText(/open/i)).toBeInTheDocument();
   });
+  test('should not be closed or open if gate locked', () => {
+    const { queryByText } = render(<Dashboard />);
+    const lockGateButton = queryByText(/lock gate/i);
+    fireEvent.click(lockGateButton);
+    //open gate SHOULD NOT be in the document when the gate is LOCKED
+    expect(queryByText(/open gate/i)).not.toBeInTheDocument();
+    // close gate SHOULD be in the document when the gate is LOCKED
+    expect(queryByText(/lock gate/i)).toBeInTheDocument();
+  });
 });
