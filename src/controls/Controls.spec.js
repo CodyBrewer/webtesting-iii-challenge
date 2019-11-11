@@ -19,4 +19,13 @@ describe('<Controls />', () => {
     const lockButton = getByText(/lock gate/i);
     expect(lockButton).toBeInTheDocument();
   });
+  test('should change lock/unlock button text to reflect the state of the door if clicked', () => {
+    const mockLock = jest.fn();
+    const { getByText } = render(
+      <Controls toggleLocked={mockLock} locked={true} closed={true} />
+    );
+    const lockButton = getByText(/lock gate/i);
+    fireEvent.click(lockButton);
+    expect(mockLock).toHaveBeenCalled();
+  });
 });
