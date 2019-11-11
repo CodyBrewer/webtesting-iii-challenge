@@ -9,4 +9,9 @@ describe('<Display />', () => {
   test('should render without crashing', () => {
     render(<Display />);
   });
+  test('should display open and unlocked', () => {
+    const { queryByText } = render(<Display />);
+    expect(queryByText(/unlocked/i)).toBeTruthy();
+    expect(queryByText(/open/i)).toBeTruthy();
+  });
 });
