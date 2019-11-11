@@ -1,5 +1,10 @@
 import React from 'react';
-import { cleanup, render, fireEvent } from '@testing-library/react';
+import {
+  cleanup,
+  render,
+  fireEvent,
+  queryByText
+} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Display from './Display';
 
@@ -23,5 +28,11 @@ describe('<Display />', () => {
       <Display closed={true} locked={true} />
     );
     expect(queryAllByTestId('led red-led')).toBeTruthy();
+  });
+  test('should have green led as class when unlocked or open', () => {
+    const { queryAllByTestId } = render(
+      <Display closed={false} locked={false} />
+    );
+    expect(queryAllByTestId('led green-led')).toBeTruthy();
   });
 });
