@@ -18,4 +18,10 @@ describe('<Display />', () => {
     const { queryByText } = render(<Display close={true} />);
     expect(queryByText(/closed/i)).toBeTruthy();
   });
+  test('should have red led as class when locked or closed', () => {
+    const { queryAllByTestId } = render(
+      <Display closed={true} locked={true} />
+    );
+    expect(queryAllByTestId('led red-led')).toBeTruthy();
+  });
 });
