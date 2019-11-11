@@ -28,4 +28,13 @@ describe('<Controls />', () => {
     fireEvent.click(lockButton);
     expect(mockLock).toHaveBeenCalled();
   });
+  test('should should change close/open button text to reflect the state of the door clicked', () => {
+    const mockOpen = jest.fn();
+    const { getByText } = render(
+      <Controls toggleClosed={mockOpen} closed={true} locked={false} />
+    );
+    const openButton = getByText(/open gate/i);
+    fireEvent.click(openButton);
+    expect(mockOpen).toHaveBeenCalled();
+  });
 });
