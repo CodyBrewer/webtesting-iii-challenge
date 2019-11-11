@@ -16,4 +16,9 @@ describe('<Dashboard />', () => {
     expect(getByText(/lock gate/i)).toBeInTheDocument();
     expect(getByText(/close gate/i)).toBeInTheDocument();
   });
+  test('should show default values - unlocked and open', () => {
+    const { getByText } = render(<Dashboard />);
+    expect(getByText(/unlocked/i)).toBeInTheDocument();
+    expect(getByText(/open/i)).toBeInTheDocument();
+  });
 });
