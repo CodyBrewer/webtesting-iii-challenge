@@ -14,9 +14,9 @@ export default (state = initialState, action) => {
       };
     case TOGGLE_CLOSED:
       return {
-        ...state:
+        ...state,
         closed: action.payload
-      }
+      };
     default:
       return state;
   }
