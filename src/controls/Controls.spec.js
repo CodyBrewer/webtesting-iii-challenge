@@ -14,4 +14,9 @@ describe('<Controls />', () => {
     const closeButton = getByText(/close gate/i);
     expect(closeButton).toBeInTheDocument();
   });
+  test('should provide button to toggle locked state', () => {
+    const { getByText } = render(<Controls />);
+    const lockButton = getByText(/lock gate/i);
+    expect(lockButton).toBeInTheDocument();
+  });
 });
