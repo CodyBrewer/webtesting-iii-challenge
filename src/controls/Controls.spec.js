@@ -9,4 +9,9 @@ describe('<Controls />', () => {
   test('should render without crashing', () => {
     render(<Controls />);
   });
+  test('should provide button to toggle closed state', () => {
+    const { getByText } = render(<Controls />);
+    const closeButton = getByText(/close gate/i);
+    expect(closeButton).toBeInTheDocument();
+  });
 });
