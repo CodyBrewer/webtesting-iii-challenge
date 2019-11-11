@@ -20,7 +20,7 @@ describe('<Display />', () => {
     expect(queryByText(/open/i)).toBeTruthy();
   });
   test('should display closed if the closed prop is true', () => {
-    const { queryByText } = render(<Display close={true} />);
+    const { queryByText } = render(<Display closed={true} />);
     expect(queryByText(/closed/i)).toBeTruthy();
   });
   test('should have red led as class when locked or closed', () => {
