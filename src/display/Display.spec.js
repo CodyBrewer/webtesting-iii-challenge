@@ -14,4 +14,8 @@ describe('<Display />', () => {
     expect(queryByText(/unlocked/i)).toBeTruthy();
     expect(queryByText(/open/i)).toBeTruthy();
   });
+  test('should display closed if the closed prop is true', () => {
+    const { queryByText } = render(<Display close={true} />);
+    expect(queryByText(/closed/i)).toBeTruthy();
+  });
 });
