@@ -10,12 +10,12 @@ export default (state = initialState, action) => {
     case TOGGLE_LOCKED:
       return {
         ...state,
-        locked: action.payload
+        locked: !state.locked
       };
     case TOGGLE_CLOSED:
       return {
         ...state,
-        closed: action.payload
+        closed: !state.closed
       };
     default:
       return state;
