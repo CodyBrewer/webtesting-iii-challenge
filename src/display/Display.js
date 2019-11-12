@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 
 const Display = props => {
-  // const closed = useSelector(state => state.closed);
-  // const locked = useSelector(state => state.locked);
   const {locked, closed} = props;
   const closedClass = `led ${closed ? 'red-led' : 'green-led'}`;
   const lockedClass = `led ${locked ? 'red-led' : 'green-led'}`;
